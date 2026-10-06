@@ -26,11 +26,10 @@
 User should be successfully logged in and redirected to the appropriate authenticated page.
 
 **Actual Result:**
-Not executed yet.
+User successfully logged in and was redirected to the Products page.
 
 **Status:**
-Not Executed
-
+PASS
 
 ---
 

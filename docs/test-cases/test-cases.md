@@ -274,8 +274,12 @@ PASS
 - The cart count should increase from 0 to 1.
 
 **Actual Result:**
-- Sauce Labs Backpack was added to the cart.
-- The cart count changed to 1.
+Actual Result:
+- Sauce Labs Backpack was successfully added to the cart.
+- Cart count changed from 0 to 1.
+- The cart displayed Sauce Labs Backpack.
+- The displayed price was $29.99.
+- The quantity was 1.
 
 **Status:**
 PASS

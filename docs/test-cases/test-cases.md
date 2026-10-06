@@ -151,11 +151,11 @@ Not Executed
 The application should prevent login and display an appropriate validation message.
 
 **Actual Result:**
-Not executed yet.
+Login was prevented and the message
+"Epic sadface: Username is required" was displayed.
 
 **Status:**
-Not Executed
-
+PASS
 
 ---
 

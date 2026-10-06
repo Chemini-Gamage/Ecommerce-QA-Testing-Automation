@@ -182,7 +182,8 @@ PASS
 The application should prevent login and display appropriate validation messages.
 
 **Actual Result:**
-Not executed yet.
+Login was prevented and the message
+"Epic sadface: Password is required" was displayed.
 
 **Status:**
-Not Executed
+PASS

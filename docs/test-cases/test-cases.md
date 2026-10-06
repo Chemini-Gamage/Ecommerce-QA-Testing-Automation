@@ -187,3 +187,34 @@ Login was prevented and the message
 
 **Status:**
 PASS
+
+### TC-007 — Sort products by price (low to high)
+
+**Scenario:** TS-006
+
+**Priority:** Medium
+
+**Precondition:**
+- User is logged in.
+- User is on the Products page.
+- Multiple products are displayed.
+
+**Test Data:**
+- Sort option: Price (low to high)
+
+**Steps:**
+1. Log in with valid credentials.
+2. Navigate to the Products page.
+3. Open the sort dropdown.
+4. Select "Price (low to high)".
+5. Observe the order of the products.
+
+**Expected Result:**
+Products should be displayed from the lowest price to the highest price.
+
+**Actual Result:**
+Products were displayed in the following price order:
+$7.99 → $9.99 → $15.99 → $15.99 → $29.99 → $49.99
+
+**Status:**
+PASS

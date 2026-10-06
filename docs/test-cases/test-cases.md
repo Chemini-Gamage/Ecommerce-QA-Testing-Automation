@@ -283,3 +283,35 @@ Actual Result:
 
 **Status:**
 PASS
+### TC-010 — Remove product from cart
+
+**Scenario:** TS-013
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- User is on the Products page.
+- Cart is initially empty.
+
+**Test Data:**
+- Product: Sauce Labs Backpack
+
+**Steps:**
+1. Add Sauce Labs Backpack to the cart.
+2. Open the cart.
+3. Verify that Sauce Labs Backpack is displayed.
+4. Click "Remove" for Sauce Labs Backpack.
+5. Observe the cart.
+
+**Expected Result:**
+- Sauce Labs Backpack should be removed from the cart.
+- The cart count should decrease to 0.
+- The cart should be empty.
+
+**Actual Result:**
+- Sauce Labs Backpack was removed from the cart.
+- The cart count changed to 0.
+
+**Status:**
+PASS

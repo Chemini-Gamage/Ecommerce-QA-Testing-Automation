@@ -24,9 +24,10 @@
 
 **Expected Result:**
 User should be successfully logged in and redirected to the appropriate authenticated page.
-
 **Actual Result:**
-User successfully logged in and was redirected to the Products page.
+Login was rejected and the message
+"Epic sadface: Username and password do not match any user in this service"
+was displayed.
 
 **Status:**
 PASS

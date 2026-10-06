@@ -249,3 +249,33 @@ $49.99 → $29.99 → $15.99 → $15.99 → $9.99 → $7.99
 
 **Status:**
 PASS
+### TC-009 — Add product to cart
+
+**Scenario:** TS-010
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- User is on the Products page.
+- Cart is initially empty.
+
+**Test Data:**
+- Product: Sauce Labs Backpack
+
+**Steps:**
+1. Log in with valid credentials.
+2. Navigate to the Products page.
+3. Click "Add to cart" for Sauce Labs Backpack.
+4. Observe the cart icon.
+
+**Expected Result:**
+- The selected product should be added to the cart.
+- The cart count should increase from 0 to 1.
+
+**Actual Result:**
+- Sauce Labs Backpack was added to the cart.
+- The cart count changed to 1.
+
+**Status:**
+PASS

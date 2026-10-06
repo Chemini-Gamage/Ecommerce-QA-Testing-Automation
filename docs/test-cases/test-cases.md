@@ -218,3 +218,34 @@ $7.99 → $9.99 → $15.99 → $15.99 → $29.99 → $49.99
 
 **Status:**
 PASS
+
+### TC-008 — Sort products by price (high to low)
+
+**Scenario:** TS-006
+
+**Priority:** Medium
+
+**Precondition:**
+- User is logged in.
+- User is on the Products page.
+- Multiple products are displayed.
+
+**Test Data:**
+- Sort option: Price (high to low)
+
+**Steps:**
+1. Log in with valid credentials.
+2. Navigate to the Products page.
+3. Open the sort dropdown.
+4. Select "Price (high to low)".
+5. Observe the order of the products.
+
+**Expected Result:**
+Products should be displayed from the highest price to the lowest price.
+
+**Actual Result:**
+Products were displayed in the following price order:
+$49.99 → $29.99 → $15.99 → $15.99 → $9.99 → $7.99
+
+**Status:**
+PASS

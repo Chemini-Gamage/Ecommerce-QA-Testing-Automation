@@ -315,3 +315,126 @@ PASS
 
 **Status:**
 PASS
+### TC-011 — Checkout with valid information
+
+**Scenario:** TS-017
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- Sauce Labs Backpack is in the cart.
+- User is on the Checkout Information page.
+
+**Test Data:**
+- First Name: John
+- Last Name: Tester
+- Postal Code: 50000
+
+**Steps:**
+1. Enter `John` in First Name.
+2. Enter `Tester` in Last Name.
+3. Enter `50000` in Postal Code.
+4. Click "Continue".
+
+**Expected Result:**
+The checkout information should be accepted and the user should proceed to the next checkout step.
+
+**Actual Result:**
+The information was accepted and the user proceeded to the next checkout step.
+
+**Status:**
+PASS
+
+
+### TC-012 — Checkout with empty First Name
+
+**Scenario:** TS-016
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- User is on the Checkout Information page.
+
+**Test Data:**
+- First Name: empty
+- Last Name: John
+- Postal Code: 50000
+
+**Steps:**
+1. Leave First Name empty.
+2. Enter `John` in Last Name.
+3. Enter `50000` in Postal Code.
+4. Click "Continue".
+
+**Expected Result:**
+The user should not proceed and an error message should indicate that First Name is required.
+
+**Actual Result:**
+The user was prevented from continuing and the message `Error: First Name is required` was displayed.
+
+**Status:**
+PASS
+
+
+### TC-013 — Checkout with empty Last Name
+
+**Scenario:** TS-016
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- User is on the Checkout Information page.
+
+**Test Data:**
+- First Name: John
+- Last Name: empty
+- Postal Code: 50000
+
+**Steps:**
+1. Enter `John` in First Name.
+2. Leave Last Name empty.
+3. Enter `50000` in Postal Code.
+4. Click "Continue".
+
+**Expected Result:**
+The user should not proceed and an error message should indicate that Last Name is required.
+
+**Actual Result:**
+The user was prevented from continuing and the message `Error: Last Name is required` was displayed.
+
+**Status:**
+PASS
+
+
+### TC-014 — Checkout with empty Postal Code
+
+**Scenario:** TS-016
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- User is on the Checkout Information page.
+
+**Test Data:**
+- First Name: John
+- Last Name: Tester
+- Postal Code: empty
+
+**Steps:**
+1. Enter `John` in First Name.
+2. Enter `Tester` in Last Name.
+3. Leave Postal Code empty.
+4. Click "Continue".
+
+**Expected Result:**
+The user should not proceed and an error message should indicate that Postal Code is required.
+
+**Actual Result:**
+The user was prevented from continuing and the message `Error: Postal Code is required` was displayed.
+
+**Status:**
+PASS

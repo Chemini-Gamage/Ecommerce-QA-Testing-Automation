@@ -477,3 +477,45 @@ PASS
 
 **Status:**
 PASS
+### TC-016 — Complete purchase successfully
+
+**Scenario:** TS-017
+
+**Priority:** Critical
+
+**Precondition:**
+- User has valid login credentials.
+- User is on the Products page.
+- Cart is empty.
+
+**Test Data:**
+- Product: Sauce Labs Backpack
+- First Name: John
+- Last Name: Tester
+- Postal Code: 50000
+
+**Steps:**
+1. Log in with valid credentials.
+2. Add Sauce Labs Backpack to the cart.
+3. Open the cart.
+4. Click "Checkout".
+5. Enter `John` as First Name.
+6. Enter `Tester` as Last Name.
+7. Enter `50000` as Postal Code.
+8. Click "Continue".
+9. Verify the order summary.
+10. Click "Finish".
+11. Observe the confirmation page.
+
+**Expected Result:**
+- The order should be successfully submitted.
+- A confirmation page should be displayed.
+- The confirmation should indicate that the order was successfully placed.
+
+**Actual Result:**
+- The order was successfully submitted.
+- The confirmation page displayed "Thank you for your order!"
+- The page stated that the order had been dispatched.
+
+**Status:**
+PASS

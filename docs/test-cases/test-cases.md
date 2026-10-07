@@ -438,3 +438,42 @@ The user was prevented from continuing and the message `Error: Postal Code is re
 
 **Status:**
 PASS
+### TC-015 — Verify checkout order summary
+
+**Scenario:** TS-017
+
+**Priority:** High
+
+**Precondition:**
+- User is logged in.
+- Sauce Labs Backpack is in the cart.
+- Valid checkout information has been entered.
+- User is on the Checkout: Overview page.
+
+**Steps:**
+1. Review the product displayed in the order summary.
+2. Verify the quantity.
+3. Verify the product price.
+4. Verify the item total.
+5. Verify the tax.
+6. Verify the final total.
+
+**Expected Result:**
+- Sauce Labs Backpack should be displayed.
+- Quantity should be 1.
+- Item price should be $29.99.
+- Item total should be $29.99.
+- Tax should be $2.40.
+- Total should equal $32.39.
+
+**Actual Result:**
+- Sauce Labs Backpack was displayed.
+- Quantity was 1.
+- Item price was $29.99.
+- Item total was $29.99.
+- Tax was $2.40.
+- Total was $32.39.
+- The calculation $29.99 + $2.40 = $32.39 was correct.
+
+**Status:**
+PASS

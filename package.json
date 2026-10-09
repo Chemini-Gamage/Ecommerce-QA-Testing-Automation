@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-qa-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chemini-Gamage/ecommerce-qa-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chemini-Gamage/ecommerce-qa-project/issues"
+  },
+  "homepage": "https://github.com/Chemini-Gamage/ecommerce-qa-project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.4"
+  }
+}

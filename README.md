@@ -345,6 +345,120 @@ This project provides practical experience with:
 - Feature-based test organization
 - Agile backlog, user story, task, and sprint workflow practice in Jira
 - Git version control and technical documentation
+- ## Testing Performed
+
+### 1. Manual Testing
+
+**Objective:** Verify application features by following documented test steps and comparing actual results with expected results.
+
+**Examples:**
+
+| Test ID | Test scenario | Expected result | Evidence |
+|---|---|---|---|
+| TC-001 | Log in with valid credentials | User is redirected to the Products page | Screenshot or manual test record |
+| TC-002 | Log in with invalid credentials | An appropriate error message is displayed | Screenshot or manual test record |
+| TC-007 | Sort products by price | Products are displayed in the selected price order | Screenshot or test record |
+| TC-009 | Add a product to the cart | The selected product appears in the cart | Screenshot or test record |
+| TC-013 | Complete checkout with valid details | The checkout process completes successfully | Screenshot or test record |
+
+**Evidence:** `docs/test-cases/test-cases.md`, `docs/test-scenarios/test-scenarios.md`, and relevant screenshots.
+
+### 2. Functional Testing
+
+**Objective:** Verify that application features behave as expected.
+
+**Examples:**
+- **Login:** Verify that valid credentials allow access to the Products page.
+- **Product sorting:** Select price sorting and check that product prices appear in the correct order.
+- **Shopping cart:** Add a product and verify its name and details in the cart.
+- **Checkout:** Enter the required checkout details and verify the expected confirmation.
+- **Logout:** Log out and verify that the user returns to the login page.
+
+**Evidence:** Corresponding test cases and automated test results.
+
+### 3. UI Automation Testing
+
+**Objective:** Automate browser interactions and verify expected application behavior using Playwright and TypeScript.
+
+**Examples:**
+- `tests/login.spec.ts` — automate login scenarios and validate login results.
+- `tests/products.spec.ts` — automate product listing and sorting checks.
+- `tests/cart.spec.ts` — automate cart operations and verify cart contents.
+- `tests/checkout.spec.ts` — automate checkout workflows and validate the resulting page.
+
+**Evidence:** Playwright test files, assertion statements, and terminal test reports.
+
+**Recorded result:** The latest previously reported Chromium run passed 20 tests. Rerun the suite to verify the current result.
+
+### 4. API Testing
+
+**Objective:** Verify REST API responses using Postman and JSONPlaceholder, a separate practice API.
+
+**Examples:**
+
+| Request | Expected result | Recorded observation |
+|---|---|---|
+| `GET /posts/1` | HTTP 200 and the requested post data | Status and data assertions passed |
+| `GET /posts/999999` | HTTP 404 for a nonexistent post | HTTP 404 and an empty JSON object were observed |
+| `POST /posts` with valid post data | HTTP 201 and a created-post response | Status, ID, and title assertions passed |
+| `POST /posts` with an empty JSON object | Behavior assessed against the API's response | HTTP 201 was observed; not automatically treated as a defect |
+
+**Evidence:** Exported Postman collection, `postman/api-test-cases.md`, and captured request/response results.
+
+**Scope note:** JSONPlaceholder is independent of SauceDemo; these API tests do not validate SauceDemo's backend.
+
+### 5. Positive and Negative Testing
+
+**Objective:** Check both expected successful behavior and invalid-input or error scenarios.
+
+**Positive testing examples:**
+- Log in using valid credentials and verify access to the Products page.
+- Retrieve an existing post using `GET /posts/1` and validate the response.
+- Submit a valid simulated post and verify the creation response.
+
+**Negative testing examples:**
+- Enter invalid login credentials and verify the displayed error.
+- Request a nonexistent post using `GET /posts/999999` and inspect the HTTP 404 response.
+- Submit malformed or empty request data and record the actual response for comparison with the applicable requirements.
+
+**Evidence:** Login test cases, Playwright assertions, and Postman response records.
+
+### 6. Exploratory Testing
+
+**Objective:** Explore application behavior beyond predefined test steps and investigate unexpected results.
+
+**Example: Cart persistence after page refresh**
+1. Log in and add a product to the shopping cart.
+2. Refresh the page.
+3. Reopen or inspect the cart.
+4. Compare the observed contents with the expected behavior.
+5. Document the outcome.
+
+**Observed result:** The product remained in the cart after refresh. No defect was confirmed by this investigation.
+
+**Evidence:** `bugs/` investigation record, if saved, and any relevant screenshots or notes.
+
+### 7. Test Documentation and Reporting
+
+**Objective:** Maintain traceable records of test activities and outcomes.
+
+**Examples:**
+- Document test objectives and scope in `docs/test-plan/test-plan.md`.
+- Record scenarios in `docs/test-scenarios/test-scenarios.md`.
+- Record test steps and expected results in `docs/test-cases/test-cases.md`.
+- Use Jira personal practice to manage tasks, a user story, acceptance criteria, and sprint activities.
+- Use Git and GitHub to version and publish project documentation.
+
+**Evidence:** Markdown test documents, Jira issue records, Git history, and the published GitHub repository.
+
+### Testing Tools
+
+- **Playwright + TypeScript:** UI automation
+- **Postman:** API request and response testing
+- **Jira:** Personal practice with issue tracking and Agile workflow
+- **Git + GitHub:** Version control and project hosting
+
+**Testing limitations:** The recorded UI automation run used Chromium. Cross-browser, performance, and dedicated security testing were not part of the documented execution. API testing was performed separately against JSONPlaceholder.
 
 ---
 

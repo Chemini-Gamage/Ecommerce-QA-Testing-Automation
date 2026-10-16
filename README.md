@@ -459,7 +459,158 @@ This project provides practical experience with:
 - **Git + GitHub:** Version control and project hosting
 
 **Testing limitations:** The recorded UI automation run used Chromium. Cross-browser, performance, and dedicated security testing were not part of the documented execution. API testing was performed separately against JSONPlaceholder.
+## Testing Types, Tools & Evidence
 
+This project covers manual testing, functional testing, UI automation, API testing, exploratory testing, and practical Jira workflow exercises. Each activity includes examples and evidence from the project.
+
+### 1. Manual Testing
+
+**Why it was used:** Manual testing helps verify application behavior from a user's perspective and identify issues before or alongside automation.
+
+**Examples:**
+1. **Login validation:** Enter valid credentials and verify that the Products page appears.
+2. **Cart operations:** Add a product to the cart and verify that the selected product is displayed.
+
+**Evidence:**
+- `docs/test-cases/test-cases.md` — test steps and expected results.
+- `docs/test-scenarios/test-scenarios.md` — documented testing scenarios.
+
+### 2. Functional Testing
+
+**Why it was used:** Functional testing verifies that individual features behave according to their expected requirements.
+
+**Examples:**
+1. **Product sorting:** Select price sorting and verify that products appear in the correct price order.
+2. **Checkout:** Enter the required customer details and verify the expected checkout confirmation.
+
+**Evidence:**
+- `tests/products.spec.ts` — automated product and sorting checks.
+- `tests/checkout.spec.ts` — checkout test scenarios and assertions.
+
+### 3. Playwright UI Automation Testing
+
+**Why it was used:** Playwright automates repetitive browser tests, checks expected results through assertions, and makes it easier to rerun tests consistently.
+
+**Examples:**
+1. **Login automation:** Automate credential entry, submit the login form, and assert that the expected page or error appears.
+2. **Cart automation:** Automate adding a product and assert that the correct item appears in the cart.
+
+**Evidence:**
+- `tests/login.spec.ts` — login test scripts and assertions.
+- `tests/cart.spec.ts` — cart automation scripts and assertions.
+
+**Recorded result:** The latest previously reported run had 20 tests passing in Chromium. Rerun the suite before presenting this as the current result.
+
+### 4. Chromium Browser Testing
+
+**Why it was used:** Chromium provides a consistent browser environment for running the Playwright UI suite and checking whether the application's main workflows behave as expected in that browser.
+
+**Examples:**
+1. Run login tests in Chromium and verify successful and unsuccessful login behavior.
+2. Run cart and checkout tests in Chromium and verify the expected page elements and workflow results.
+
+**Evidence:**
+- `playwright.config.ts` — browser and project configuration.
+- Terminal output from `npx playwright test --project=chromium` — executed tests and pass/fail results.
+
+**Scope:** Chromium was tested. Firefox, WebKit, and other browser testing should not be claimed unless those tests have also been run.
+
+### 5. API Testing with Postman
+
+**Why it was used:** API testing checks server responses, status codes, response fields, and error behavior without depending on the website's user interface.
+
+**Examples:**
+1. **Retrieve an existing post:** Send `GET /posts/1` and verify HTTP 200 and the expected post data.
+2. **Create a simulated post:** Send `POST /posts` with post data and verify HTTP 201 and the returned ID and title.
+
+**Evidence:**
+- `postman/api-test-cases.md` — API test scenarios and expected results.
+- Exported Postman collection JSON and saved request/response evidence.
+
+**Additional negative test:** `GET /posts/999999` returned HTTP 404 for a nonexistent post.
+
+**Scope note:** These API tests use JSONPlaceholder, an independent practice API, and do not test SauceDemo's backend.
+
+### 6. Positive and Negative Testing
+
+**Why it was used:** Positive testing checks valid inputs and expected successful behavior. Negative testing checks invalid inputs, error handling, and behavior outside normal successful scenarios.
+
+**Examples:**
+
+**Positive testing**
+1. Log in with valid credentials and verify access to the Products page.
+2. Retrieve an existing post using `GET /posts/1` and verify the successful response.
+
+**Negative testing**
+1. Log in with invalid credentials and verify that an error is displayed.
+2. Request a nonexistent post using `GET /posts/999999` and inspect the HTTP 404 response.
+
+**Evidence:**
+- `tests/login.spec.ts` — login test cases and assertions.
+- `postman/api-test-cases.md` — API request scenarios and response checks.
+
+### 7. Exploratory Testing
+
+**Why it was used:** Exploratory testing helps investigate application behavior that may not be fully covered by predefined test cases.
+
+**Examples:**
+1. Add a product to the cart, refresh the page, and check whether the product remains in the cart.
+2. Inspect the cart after navigating between pages to investigate whether selected items are retained.
+
+**Evidence:**
+- Saved exploratory testing notes or an investigation record in `bugs/`.
+- Screenshots showing the cart before and after refreshing, if captured.
+
+**Recorded observation:** The product remained in the cart after refresh. The investigation did not confirm a defect.
+
+### 8. Jira — Issue Tracking and Agile Workflow Practice
+
+**Why it was used:** Jira provides practice in organizing testing work, documenting requirements, tracking progress, and managing tasks within a sprint.
+
+**Examples:**
+1. **Task — Document test scenarios for the e-commerce application:** Used to track preparation of the test plan, test scenarios, and test cases.
+2. **Story — Verify that users can log in with valid credentials:** Included acceptance criteria for successful login, the Products page, and invalid-login error handling.
+3. **Cart persistence investigation:** Created an issue to investigate whether cart contents remained after refreshing the page, then recorded the passing observation rather than claiming an unconfirmed defect.
+4. **Sprint planning:** Added selected work to a Jira sprint and practised status tracking and sprint organization.
+
+**Evidence:**
+- Jira task showing the testing-documentation work.
+- Jira story showing the acceptance criteria and testing comment.
+- Jira cart investigation showing the observed result.
+- Jira sprint board showing the selected work and its status.
+
+**Scope note:** Jira was used for personal learning and portfolio practice, not as part of a professional Scrum team.
+
+### 9. Test Documentation and Reporting
+
+**Why it was used:** Documentation makes test objectives, steps, expected results, and findings traceable and easier for other people to review.
+
+**Examples:**
+1. Create a test plan defining the scope and objectives of the project.
+2. Document test cases with steps and expected results for login, products, cart, and checkout.
+
+**Evidence:**
+- `docs/test-plan/test-plan.md`
+- `docs/test-scenarios/test-scenarios.md`
+- `docs/test-cases/test-cases.md`
+- Playwright terminal reports and saved API test results.
+
+### Testing Tools Summary
+
+| Tool | Purpose | Main evidence |
+|---|---|---|
+| Playwright | Automate UI workflows and assertions | `tests/` |
+| Chromium | Browser environment for UI test execution | `playwright.config.ts` and test output |
+| Postman | Send API requests and inspect responses | Exported collection and API test documentation |
+| Jira | Practise issue tracking and sprint workflows | Tasks, story, investigation issue, and sprint board |
+| Git and GitHub | Version control and project publication | Repository and commit history |
+
+### Testing Limitations
+
+- UI automation was run in Chromium; cross-browser coverage is not claimed.
+- API testing was performed against JSONPlaceholder, separate from the SauceDemo UI.
+- Performance and dedicated security testing were not part of the documented execution.
+- Test counts and outcomes should be reported using the latest verified run and saved evidence.
 ---
 
 *Created as a self-driven QA learning and portfolio project.*
